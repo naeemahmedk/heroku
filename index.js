@@ -19,8 +19,8 @@ app.post('/signature', (req, res) => {
 
     res.json({
         signature: signature,
-        req.body.meetingNumber,
-        req.body.role
+        meetingNumber:req.body.meetingNumber,
+        role:req.body.role
     })
 });
 
