@@ -10,7 +10,7 @@ const port = process.env.PORT || 4000
 app.use(bodyParser.json(), cors())
 app.options('*', cors());
 
-app.post('/signature', (req, res) => {
+app.post('/', (req, res) => {
 
     const timestamp = new Date().getTime() - 30000
     const msg = Buffer.from(process.env.API_KEY + req.body.meetingNumber + timestamp + req.body.role).toString('base64')
@@ -24,10 +24,5 @@ app.post('/signature', (req, res) => {
     })
 });
 
-app.get('/', (req, res) => {
-    res.json({
-        message:"Hello App was Created"
-    })
-})
 
 app.listen(port, () => console.log(`Zoom Web SDK Sample Signature Node.js on port ${port}!`))
